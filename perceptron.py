@@ -11,7 +11,6 @@ class Perceptron:
         '''Fit training data.'''
         rgen = np.random.RandomState(self.random_state)
         self.weights_ = rgen.normal(loc=0.0, scale=0.01, size=X.shape[1])
-        print(self.weights_)
         self.bias_ = np.float64(0.0)
         self.errors_ = []
 
