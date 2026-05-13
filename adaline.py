@@ -17,3 +17,7 @@ class AdalineGD:
     def net_input(self, X):
         '''Calculate net input.'''
         return np.dot(X, self.weights_) + self.bias_
+    
+    def activation(self, X):
+        '''Compute linear activation.'''
+        return X
