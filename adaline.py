@@ -8,10 +8,12 @@ class AdalineGD:
         self.random_state = random_state
 
     def fit(self, X, y):
+        '''Fit training data.'''
         rgen = np.random.RandomState(self.random_state)
         self.weights_ = rgen.normal(loc=0.0, scale=0.01, size=X.shape[1])
         self.bias_ = np.float64(0.0)
         self.losses_ = []
+        #Complete for i in range(self.n_iteraions):        
         return self
     
     def net_input(self, X):
@@ -21,3 +23,7 @@ class AdalineGD:
     def activation(self, X):
         '''Compute linear activation.'''
         return X
+    
+    def predict(self, X):
+        '''Return class label after unit step.'''
+        return np.where(self.activation(self.net_input(X)) >= 0.5, 1, 0)
