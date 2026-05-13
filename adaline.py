@@ -9,7 +9,11 @@ class AdalineGD:
 
     def fit(self, X, y):
         rgen = np.random.RandomState(self.random_state)
-        self.w_ = rgen.normal(loc=0.0, scale=0.01, size=X.shape[1])
-        self.b_ = np.float64(0.0)
+        self.weights_ = rgen.normal(loc=0.0, scale=0.01, size=X.shape[1])
+        self.bias_ = np.float64(0.0)
         self.losses_ = []
         return self
+    
+    def net_input(self, X):
+        '''Calculate net input.'''
+        return np.dot(X, self.weights_) + self.bias_
