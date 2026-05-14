@@ -13,7 +13,15 @@ class AdalineGD:
         self.weights_ = rgen.normal(loc=0.0, scale=0.01, size=X.shape[1])
         self.bias_ = np.float64(0.0)
         self.losses_ = []
-        #Complete for i in range(self.n_iteraions):        
+        
+        for i in range(self.n_iterations):
+            net_input = self.net_input(X)
+            output = self.activation(net_input)
+            errors = (y - output)
+            self.weights_ += self.learning_rate * 2.0 * X.T.dot(errors) / X.shape[0]
+            self.bias_ += self.learning_rate * 2.0 * errors.mean()
+            loss = (errors**2).mean()
+            self.losses_.append(loss)
         return self
     
     def net_input(self, X):
