@@ -52,7 +52,7 @@ class AdalineSGD:
         output = self.activation(self.net_input(xi))
         error = (target - output)
         self.weights_ += self.learning_rate * 2.0 * xi * (error)
-        self.bias_ += self.eta * 2.0 * error
+        self.bias_ += self.learning_rate * 2.0 * error
         loss = error ** 2
         return loss
 
