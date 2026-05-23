@@ -41,11 +41,18 @@ L(\mathbf{w}, b) = \frac{1}{2n} \sum_{i=1}^{n} (y^{(i)} - \sigma(z)^{(i)})^2
 ```
 Weight and bias updates (gradient descent):
 ```math
-\Delta \mathbf{w} = \frac{2\eta}{n} \cdot \sum_{i=1}^{n} (y^{(i)} - \sigma(z)^{(i)}) \mathbf{x}^{(i)}
+\Delta \mathbf{w} = \frac{2\eta}{n} \sum_{i=1}^{n} (y^{(i)} - \sigma(z)^{(i)}) \mathbf{x}^{(i)}
 ```
 ```math
-\Delta b = \frac{2\eta}{n} \cdot \sum_{i=1}^{n} (y^{(i)} - \sigma(z)^{(i)})
+\Delta b = \frac{2\eta}{n} \sum_{i=1}^{n} (y^{(i)} - \sigma(z)^{(i)})
 ```
 ```math
 \mathbf{w} := \mathbf{w} + \Delta \mathbf{w}, \quad b := b + \Delta b
+```
+Stochastic gradient descent:
+```math
+\Delta \mathbf{w} = \eta (y^{(i)} - \sigma(z)^{(i)}) \mathbf{x}^{(i)}
+```
+```math
+\Delta b = \eta (y^{(i)} - \sigma(z)^{(i)})
 ```
