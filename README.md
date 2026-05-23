@@ -49,7 +49,7 @@ Weight and bias updates (gradient descent):
 ```math
 \mathbf{w} := \mathbf{w} + \Delta \mathbf{w}, \quad b := b + \Delta b
 ```
-Stochastic gradient descent:
+[Stochastic gradient descent:](adalinesgd.py)
 ```math
 \Delta \mathbf{w} = \eta (y^{(i)} - \sigma(z)^{(i)}) \mathbf{x}^{(i)}
 ```
