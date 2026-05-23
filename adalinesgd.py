@@ -1,6 +1,6 @@
 import numpy as np
 
-class AdalineGD:
+class AdalineSGD:
     '''ADAptive LInear NEuron classifier.'''
     def __init__(self, learning_rate=0.01, n_iterations=50, shuffle=True, random_state=None):
         self.learning_rate = learning_rate
@@ -27,22 +27,27 @@ class AdalineGD:
     def partial_fit(self, X, y):
         '''Fit training data without reinitializing the weights.'''
         if not self.w_initialized:
-            self.initialize_weights(X.shape[1])
+            self._initialize_weights(X.shape[1])
         if y.ravel().shape[0] > 1:
             for xi, target in zip(X, y):
                 self._update_weights(xi, target)
         else:
             self._update_weights(X, y)
         return self
+    
+    def _shuffle(self, X, y):
+        '''Shuffle training data.'''
+        r = self.rgen.permutation(len(y))
+        return X[r], y[r]
 
-    def initialize_weights(self, m):
+    def _initialize_weights(self, m):
         '''Initialize weights to small random numbers.'''
         self.rgen = np.random.RandomState(self.random_state)
         self.weights_ = self.rgen.normal(loc=0.0, scale=0.01, size=m)
         self.bias_ = np.float64(0.0)
         self.weights_initialized = True
 
-    def update_weights(self, xi, target):
+    def _update_weights(self, xi, target):
         '''Apply Adaline learning rule to update the weights.'''
         output = self.activation(self.net_input(xi))
         error = (target - output)
