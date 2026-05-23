@@ -42,6 +42,15 @@ class AdalineGD:
         self.bias_ = np.float64(0.0)
         self.weights_initialized = True
 
+    def update_weights(self, xi, target):
+        '''Apply Adaline learning rule to update the weights.'''
+        output = self.activation(self.net_input(xi))
+        error = (target - output)
+        self.weights_ += self.learning_rate * 2.0 * xi * (error)
+        self.bias_ += self.eta * 2.0 * error
+        loss = error ** 2
+        return loss
+
     def net_input(self, X):
         '''Calculate net input.'''
         return np.dot(X, self.weights_) + self.bias_
