@@ -56,3 +56,13 @@ Weight and bias updates (gradient descent):
 ```math
 \Delta b = \eta (y^{(i)} - \sigma(z)^{(i)})
 ```
+
+### 3. Logistic Regression
+Logistic sigmoid activation function:
+```math
+\sigma(z) = \frac{1}{1 + e^{-z}}
+```
+Class membership probability:
+```math
+p(y = 1|\mathbf{x})
+```
