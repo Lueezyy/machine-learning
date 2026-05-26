@@ -66,3 +66,7 @@ Class membership probability:
 ```math
 p(y = 1|\mathbf{x})
 ```
+Loss function:
+```math
+L(\mathbf{w}, b) = \frac{1}{n} \sum_{i=1}^{n} [-y^{(i)} \log(\sigma(z^{(i)})) - (1 - y^{(i)}) \log(1 - \sigma(z^{(i)}))]
+```
