@@ -57,7 +57,7 @@ Weight and bias updates (gradient descent):
 \Delta b = \eta (y^{(i)} - \sigma(z)^{(i)})
 ```
 
-### 3. Logistic Regression
+### 3. [Logistic Regression](logregression.py)
 Logistic sigmoid activation function:
 ```math
 \sigma(z) = \frac{1}{1 + e^{-z}}
